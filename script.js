@@ -78,7 +78,7 @@ function game() {
     let choice;
     let result; 
 
-    for(let i = 0; 5 > i; i++) {
+    for(human && computer; 5 > computer && 5 > human;) {
 
         choice = prompt("Choose rock, paper or scissors").toLowerCase();
 
@@ -109,13 +109,13 @@ function game() {
                 min = computer;
             }
             if (min === max) {
-                console.log("Human win the round " + "It's " + max + ":" + min + " for both players.");
+                console.log("Human wins the round " + "It's " + max + ":" + min + " for both players.");
             }
             else if (max === human) {
-                console.log("Human win the round " + "It's " + max + ":" + min + " for the human.");
+                console.log("Human wins the round " + "It's " + max + ":" + min + " for the human.");
             }
             else {
-                console.log("Human win the round " + "It's " + max + ":" + min + " for the computer.");
+                console.log("Human wins the round " + "It's " + max + ":" + min + " for the computer.");
             }
             
         }
@@ -132,13 +132,13 @@ function game() {
                 min = computer;
             }
             if (min === max) {
-                console.log("Computer win the round " + "It's " + max + ":" + min + " for both players.");
+                console.log("Computer wins the round " + "It's " + max + ":" + min + " for both players.");
             }
             else if (max === human) {
-                console.log("Computer win the round " + "It's " + max + ":" + min + " for the human.");
+                console.log("Computer wins the round " + "It's " + max + ":" + min + " for the human.");
             }
             else {
-                console.log("Computer win the round " + "It's " + max + ":" + min + " for the computer.");
+                console.log("Computer wins the round " + "It's " + max + ":" + min + " for the computer.");
             }
             
             
