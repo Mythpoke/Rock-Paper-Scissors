@@ -26,8 +26,7 @@ game () {
 
 
 function getComputerChoice() {
-    let random;
-    random = Math.round(Math.random() * 2 + 1);
+    let random = Math.round(Math.random() * 2 + 1);
 
     if (random === 1) {
         return "rock";
@@ -42,17 +41,117 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-    if (playerSelection === computerSelection) {
+    if(playerSelection === computerSelection) {
         return "Tie";
     }
-    else if (playerSelection === "rock" && computerSelection === "scissors" ||
-             playerSelection === "scissors" && computerSelection === "paper" ||
-             playerSelection === "paper" && computerSelection === "rock") {
-        return "You won";
-    }
+    else if (playerSelection === "paper" && computerSelection === "rock" ||
+             playerSelection === "rock" && computerSelection === "paper" ||
+             playerSelection === "scissors" && computerSelection === "paper") {
+                return "You won";
+             }
     else {
-       return "You lose";
+        return "You lose";
     }
 }
 
+function getWinner(human, computer) {
 
+    if (human > computer) {
+        console.log("Human won!");
+    }
+    else if(computer > human) {
+        console.log("Computer won!");
+    }
+    else {
+        console.log("It's a tie!");
+    }
+    
+}
+
+
+
+function game() {
+
+    let human = 0;
+    let computer = 0;
+
+    let choice;
+    let result; 
+
+    for(let i = 0; 5 > i; i++) {
+
+        choice = prompt("Choose rock, paper or scissors").toLowerCase();
+
+        while (!(choice === "rock") && !(choice === "paper") && !(choice === "scissors")) {
+
+        choice = prompt("try again").toLowerCase();
+
+        }
+
+        result = playRound(choice, getComputerChoice());
+
+        while (result === "Tie") {
+
+        choice = prompt("Choose rock, paper or scissors").toLowerCase();
+        result = playRound(choice, getComputerChoice());
+        }
+
+        if (result === "You won") {
+            human++;
+            let max;
+            let min;
+            if (computer > human) {
+                max = computer;
+                min = human;
+            }
+            else {
+                max = human;
+                min = computer;
+            }
+            if (min === max) {
+                console.log("Human win the round " + "It's " + max + ":" + min + " for both players.");
+            }
+            else if (max === human) {
+                console.log("Human win the round " + "It's " + max + ":" + min + " for the human.");
+            }
+            else {
+                console.log("Human win the round " + "It's " + max + ":" + min + " for the computer.");
+            }
+            
+        }
+        else if (result === "You lose") {
+            computer++
+            let max;
+            let min;
+            if (computer > human) {
+                max = computer;
+                min = human;
+            }
+            else {
+                max = human;
+                min = computer;
+            }
+            if (min === max) {
+                console.log("Computer win the round " + "It's " + max + ":" + min + " for both players.");
+            }
+            else if (max === human) {
+                console.log("Computer win the round " + "It's " + max + ":" + min + " for the human.");
+            }
+            else {
+                console.log("Computer win the round " + "It's " + max + ":" + min + " for the computer.");
+            }
+            
+            
+        }
+        console.log(human);
+        console.log(computer);
+ }
+
+
+    
+
+    getWinner(human, computer);
+
+}
+
+game();
